@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Product } from '../../shared/services';
 
 @Component({
@@ -6,7 +6,11 @@ import { Product } from '../../shared/services';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, OnChanges {
+  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+    console.log('changes :', changes);
+
+  }
     @Input() product:Product;
   constructor() {
 
